@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from sembrar.models import Project
 
 def home(request):
-	projects = Project.objects.all()
+	projects = Project.objects.all().order_by("location")
 	tools_used = request.GET.get("tools_used", "")
 	if tools_used:
 		projects = projects.filter(tools_used__icontains=tools_used)

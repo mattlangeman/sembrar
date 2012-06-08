@@ -173,6 +173,17 @@ function setMarkers(map, locations) {
 	</div>
   	<div id="map_canvas" style="width:90%; height:90%"></div> 
 
+	<ul>
+	{% for project in projects %}
+		<li>{% if project.link %}
+				<a target="_blank" href="{{project.link}}">{{project.location}}</a>
+			{% else %}
+				{{project.location}}
+			{% endif %}: ({{project.latitude}}, {{project.longitude}})</li>
+	{% endfor %}
+	</ul>
+
+
   </form>
 
 </body> 
